@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// enum CategoryEnum {
+//   REDUCING_PLASTIC_USE
+//   REDUCING_ENERGY_CONSUMPTION
+//   SAVE_WATER
+//   MINIMALIZING_FOOD_WASTE
+// }
+
+model User {
+  id             String  @id @default(cuid())
+  email          String  @unique
+  name           String
+  hashedPassword String
+  category       String
+  isAdmin        Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Session  Session[]
+  Order    Order[]
+  Review   Review[]
+  Activity Activity[]
+  Cart     Cart?
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id     String @id @default(cuid())
+  type   String
+  userId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id          String @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  category    String
+  imageUrl    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Review    Review[]
+  CartItem  CartItem[]
+  OrderItem OrderItem[]
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  userId    String
+  total     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User        @relation(fields: [userId], references: [id])
+  items  OrderItem[] // One-to-many relationship with OrderItem
+  Review Review[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  order   Order   @relation(fields: [orderId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+}
+
+model Review {
+  id        String @id @default(cuid())
+  userId    String
+  orderId   String
+  productId String
+  rating    Int    @default(0)
+  comment   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+  order   Order   @relation(fields: [orderId], references: [id]) // Added relation to Order
+
+  @@unique([userId, productId]) // Composite unique constraint
+}
+
+model Cart {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User       @relation(fields: [userId], references: [id])
+  items CartItem[]
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  cartId    String
+  productId String
+  quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id])
+  cart    Cart    @relation(fields: [cartId], references: [id])
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sustainable Lifestyle Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #27ae60;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Sustainable Lifestyle Store</h1>
+    
+    <section>
+        <h2>What are you selling?</h2>
+        <p>
+            Our store offers a variety of sustainable and eco-friendly products aimed at reducing environmental impact. 
+            These include reusable items such as water bottles, shopping bags, and food containers, as well as energy-efficient appliances, organic personal care products, and eco-friendly cleaning supplies. 
+            We also provide tools to help users make their life more sustainable, such as the "Carbon Footprint Calculator" and the "Water Usage Calculator."
+        </p>
+    </section>
+
+    <section>
+        <h2>What additional page(s) did you add? How to operate it?</h2>
+        <ul>
+            <li><strong>User Settings:</strong> You can change your personal details, including your sustainable category and password (communicated with the server). Just click on the account icon and fill the form.</li>
+            <li><strong>Orders:</strong> Each user can see their recent orders (communicated with the server), accessible through the account icon menu.</li>
+            <li><strong>Your Reviews:</strong> After ordering and paying for a product, users can leave a review that will appear on the reviews page. This is also accessed through the account icon menu.</li>
+            <li><strong>Activities:</strong> Each user can see their activity log (admins can see everyone's). This communicates with the server and is available in the account icon menu.</li>
+            <li><strong>Contact Us:</strong> Users can send a message through a form in the sidebar, and I will receive it via email.</li>
+            <li><strong>Carbon Footprint Calculator & Water Usage Calculator:</strong> Tools to help users understand their eco-friendliness. Accessible from the side menu.</li>
+            <li><strong>About Us:</strong> Information about me and my partner. Accessible from the side menu.</li>
+            <li><strong>Learn More:</strong> More information about climate change and the world's current problems. Accessible from the side menu or the home page.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>What was hard to do?</h2>
+        <p>
+            The frontend was particularly challenging, especially as it was my first time using React and designing a proper website. I spent a lot of time on the design because it really bothered me when things didn't look right. 
+            Also, when we started the project, I was in Mexico, and my partner was in Israel. We decided to split the work, with me handling the frontend and him the backend. 
+            However, this created communication issues, and I didn’t understand big parts of his code, and he didn’t understand mine. 
+            After we realized this method wasn’t working, we switched to working together via screen sharing. Although the different time zones still made things difficult, this approach worked better.
+        </p>
+    </section>
+
+    <section>
+        <h2>Who is your partner? What did you do? What did your partner do?</h2>
+        <p>
+            My partner is <strong>Michael Ohayon</strong>, ID: 319019291. Initially, we divided the work into frontend (me) and backend (Michael), but most of the time, we ended up working together because dividing the work wasn't effective.
+        </p>
+    </section>
+
+    <section>
+        <h2>Routes your app supports:</h2>
+        <ul>
+            <li>Home (path: "/")</li>
+            <li>About Us (path: "/about")</li>
+            <li>Testimonials (path: "/testimonials")</li>
+            <li>Learn More (path: "/learn-more")</li>
+            <li>Contact (path: "/contact")</li>
+            <li>Shop (path: "/shop")</li>
+            <li>Product (path: "/product/:id")</li>
+            <li>Search (path: "/search")</li>
+            <li>Carbon Footprint Calculator (path: "/carbon-footprint-calculator")</li>
+            <li>Water Usage Calculator (path: "/water-usage-calculator")</li>
+            <li>Checkout (path: "/cart")</li>
+            <li>Order Complete (path: "/thank-you")</li>
+            <li>Sign In (path: "/sign-in")</li>
+            <li>Sign Up (path: "/sign-up")</li>
+            <li>Manage User Account (path: "/settings")</li>
+            <li>User Activities (path: "/activities")</li>
+            <li>User Orders History (path: "/orders")</li>
+            <li>View Products (path: "/admin")</li>
+            <li>Add Product (path: "/admin/product/add")</li>
+            <li>Edit Product (path: "/admin/product/edit/:id")</li>
+            <li>All User Activities (path: "/admin/user/activities")</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Database Information</h2>
+        <p>
+            We are using SQLite as the database with Prisma ORM to make queries. The database file is named "dev.db." I recently realized it should be called "persist.js," but I left it as is to avoid losing data. I hope this isn’t a problem.
+        </p>
+    </section>
+</body>
+</html>

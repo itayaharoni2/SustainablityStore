@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "target": "es2022",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  },
+  "include": ["src/**/*" , "seed/**/*" , "test/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
