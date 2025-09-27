@@ -4,18 +4,18 @@ A full‑stack web app that helps users **track sustainable habits** and **shop 
 
 ---
 
-## ✨ Features
+## Features
 
 - User authentication (signup/login)
 - Real‑time sustainability tracking and personalized product recommendations
 - Product catalog with categories (e.g., Reducing Plastic Use, Saving Water) 
 - Cart & orders flow
 - Admin pages: add/edit products, manage users & activities
-- Email endpoints (configurable via RESEND) *(optional)*
+- Email endpoints (configurable via RESEND)
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 **Backend:** Node.js, Express, TypeScript, Prisma (SQLite), Zod, cookie‑session, CORS  
 **Frontend:** React, Vite, React Router, React Hook Form, Radix UI, Tailwind CSS  
@@ -23,7 +23,7 @@ A full‑stack web app that helps users **track sustainable habits** and **shop 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 backend/
@@ -44,48 +44,26 @@ frontend/
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 - Node.js 18+
 - PNPM or NPM
-- (Optional) RESEND account if you want email to work
+- RESEND account (if you want email to work)
 
 ---
 
-## 🔐 Environment Variables
-
-### Backend (`backend/.env`)
-Create a `.env` file with at least:
-```
-PORT=8000
-DATABASE_URL="file:./dev.db"
-SERVER_URL="http://localhost:8000"
-
-# Optional – only if you want email features:
-RESEND_API_KEY="..."
-RESEND_RECEIVER_EMAIL="you@example.com"
-```
-> **Note:** Keep secrets out of version control.
-
-### Frontend (`frontend/.env`)
-```
-VITE_SERVER_URL="http://localhost:8000"
-```
-
----
-
-## 🛠️ Local Development
+## Local Development
 
 ### 1) Install deps
 From each folder:
 ```bash
 # Backend
 cd backend
-pnpm install   # or: npm install
+npm install
 
 # Frontend
 cd ../frontend
-pnpm install   # or: npm install
+npm install
 ```
 
 ### 2) Prepare the database
@@ -96,17 +74,10 @@ npx prisma generate
 npx prisma db push
 ```
 
-### 3) (Optional) Seed sample products
-```bash
-# Build TS → JS, then run the seed
-pnpm run build    # or: npm run build
-node dist/seed/products.js
-```
-
-### 4) Run the backend
+### 3) Run the backend
 ```bash
 # Dev (hot‑reload)
-pnpm run dev      # or: npm run dev
+npm run dev
 
 # Or production style
 pnpm run build && pnpm start
@@ -114,23 +85,13 @@ pnpm run build && pnpm start
 
 The server should start on: `http://localhost:8000`
 
-### 5) Run the frontend
+### 4) Run the frontend
 ```bash
 cd ../frontend
-pnpm run dev      # or: npm run dev
+npm run dev
 ```
 Open the Vite dev URL (usually printed like `http://localhost:5173`).  
 The app expects the API at `VITE_SERVER_URL` (default `http://localhost:8000`).
-
----
-
-## ✅ Quick Smoke Test
-
-1. Open the frontend (`/` route should load).  
-2. Visit **/login** or **/signup** and create a test user.  
-3. Browse **products**, add one to **cart**, and attempt a checkout flow.  
-4. Visit **/admin** and try **Add Product** (requires admin‑authorized user).  
-5. Check **/activities** & **/orders** pages under the user area.
 
 ---
 
@@ -142,7 +103,7 @@ The app expects the API at `VITE_SERVER_URL` (default `http://localhost:8000`).
 - `POST /auth/*` – signup / login / logout
 - `GET /cart` / `POST /cart` – manage cart
 - `POST /order` – create order
-- `POST /contact` – contact form (optionally triggers email via RESEND)
+- `POST /contact` – contact form 
 - `GET /user/*` – user profile & activities
 - `GET /admin/*` – admin dashboards
 
@@ -150,59 +111,12 @@ The app expects the API at `VITE_SERVER_URL` (default `http://localhost:8000`).
 
 ---
 
-## 🧪 Tips & Troubleshooting
+## Demo Video
 
-- **Port in use**: change `PORT` in `backend/.env` and update `VITE_SERVER_URL` accordingly.
-- **Database missing tables**: run `npx prisma db push` again.
-- **Seed not found**: ensure you ran `pnpm run build` first; the seed runs from `dist/seed/products.js`.
-- **CORS**: Backend enables CORS for the frontend origin; if you change ports, restart both apps.
+[![YouTube Demo Badge](https://img.shields.io/badge/YouTube-Demo-red?logo=YouTube&logoColor=white&style=for-the-badge)](https://youtu.be/v_Ln1SCbARA)
 
 ---
 
-## 🎬 How to Record a Great Demo Video (2–3 min)
-
-**Goal:** show the value fast; keep it tight and visual.
-
-**1) Prep a tiny script (bullet list):**
-- 5s — Title card: “Sustainable Lifestyle Tracker & Store”
-- 15s — What problem it solves + stack in one sentence
-- 60–90s — Core demo: 
-  - Sign up → login
-  - Browse products & categories
-  - Add to cart → (fake) checkout
-  - Sustainability tracker updating / recommendations
-  - Admin: add/edit a product (quick)
-- 10s — Closing: repo link + what’s next
-
-**2) Set up recording:**
-- Use **OBS** (1920×1080, 30 fps), capture a browser window only.
-- Zoom text to **110–125%** in the browser for readability.
-- Close distractions (tabs/notifications).
-
-**3) Pro demo flow:**
-- Start from **home page** → 1 sentence about the app.
-- Navigate smoothly using **bookmarked routes**: `/login`, `/products`, `/cart`, `/admin`.
-- Use a **prepared test user**.
-- Keep mouse movements calm, highlight key UI moments.
-
-**4) Narration tips:**
-- Speak to outcomes: “This tracker updates as I add eco‑friendly products.”
-- Mention the stack once, not everywhere.
-- Avoid dead air; if something loads, summarize architecture while you wait.
-
-**5) Post‑production (optional):**
-- Trim starts/ends in **Clipchamp/CapCut/iMovie**.
-- Add lightweight captions or callouts for sections.
-- Export to **1080p MP4**, upload to GitHub Releases or YouTube (unlisted).
-
----
-
-## 📄 License
-
-MIT (or your preference).
-
----
-
-## 🙌 Credits
+## Credits
 
 Built by Itay Aharoni.
