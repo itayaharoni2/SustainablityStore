@@ -113,7 +113,7 @@ The app expects the API at `VITE_SERVER_URL` (default `http://localhost:8000`).
 
 ## Demo Video
 
-[![YouTube Demo Badge](https://img.shields.io/badge/YouTube-Demo-red?logo=YouTube&logoColor=white&style=for-the-badge)](https://youtu.be/v_Ln1SCbARA)
+Watch a quick demo of the website here: https://youtu.be/v_Ln1SCbARA
 
 ---
 
