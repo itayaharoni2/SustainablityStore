@@ -4,6 +4,12 @@ A full‑stack web app that helps users **track sustainable habits** and **shop 
 
 ---
 
+## Demo Video
+
+Watch a quick demo of the website here: https://youtu.be/v_Ln1SCbARA
+
+---
+
 ## Features
 
 - User authentication (signup/login)
@@ -111,9 +117,6 @@ The app expects the API at `VITE_SERVER_URL` (default `http://localhost:8000`).
 
 ---
 
-## Demo Video
-
-Watch a quick demo of the website here: https://youtu.be/v_Ln1SCbARA
 
 ---
 
